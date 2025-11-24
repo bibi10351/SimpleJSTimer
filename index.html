@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <h1>Countdown Timer</h1>
@@ -19,35 +17,8 @@
             <button id="startBtn">Start</button>
             <button id="resetBtn">Reset</button>
         </div>
-        <div class="flip-clock">
-            <div class="flip-card" data-unit="minutes-tens">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-                <div class="top-flip">0</div>
-                <div class="bottom-flip">0</div>
-            </div>
-            <div class="flip-card" data-unit="minutes-ones">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-                <div class="top-flip">0</div>
-                <div class="bottom-flip">0</div>
-            </div>
-            <div class="colon">:</div>
-            <div class="flip-card" data-unit="seconds-tens">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-                <div class="top-flip">0</div>
-                <div class="bottom-flip">0</div>
-            </div>
-            <div class="flip-card" data-unit="seconds-ones">
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-                <div class="top-flip">0</div>
-                <div class="bottom-flip">0</div>
-            </div>
-        </div>
+        <div id="timerDisplay">00:00</div>
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>

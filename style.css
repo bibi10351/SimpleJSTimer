@@ -51,14 +51,12 @@ input {
     padding: 0.8rem;
     font-size: 1rem;
     width: 140px;
-    /* Increased width for placeholder */
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
     border-radius: 8px;
     color: var(--text-color);
     text-align: center;
     color-scheme: dark;
-    /* Dark mode for spinners */
 }
 
 input:focus {
@@ -92,134 +90,151 @@ button:hover {
     background-color: #3a3a3a;
 }
 
-#timerDisplay {
-    font-size: 5rem;
+/* Flip Clock Styles */
+.flip-clock {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.flip-card {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--text-color);
-    margin-top: 1rem;
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
+    width: 60px;
+    height: 90px;
+    perspective: 200px;
+}
+
+.top,
+.bottom,
+.top-flip,
+.bottom-flip {
+    height: 50%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+.top,
+.top-flip {
+    top: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    align-items: flex-end;
+}
+
+.bottom,
+.bottom-flip {
+    bottom: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #3a3a3a;
+    align-items: flex-start;
+}
+
+.top,
+.top-flip {
+    line-height: 90px;
+}
+
+.bottom::before,
+.bottom-flip::before {
+    content: attr(data-value);
+    display: block;
+    line-height: 90px;
+    margin-top: -45px;
+}
+
+.top,
+.top-flip {
+    background-color: #333;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.bottom,
+.bottom-flip {
+    background-color: #383838;
+}
+
+/* Animation Classes */
+.flip-top-anim {
+    transform-origin: bottom;
+    animation: flip-top 0.25s ease-in;
+    z-index: 2;
+}
+
+.flip-bottom-anim {
+    transform-origin: top;
+    transform: rotateX(90deg);
+    animation: flip-bottom 0.25s ease-out 0.25s;
+    z-index: 2;
+}
+
+.colon {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 5px;
+    padding-bottom: 10px;
+}
+
+@keyframes flip-top {
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flip-bottom {
+    100% {
+        transform: rotateX(0deg);
+    }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 480px) {
     .container {
         padding: 2rem;
+        width: 95%;
+    }
 
-        :root {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --primary-color: #bb86fc;
-            --primary-hover: #9965f4;
-            --secondary-color: #03dac6;
-            --secondary-hover: #018786;
-            --danger-color: #cf6679;
-            --danger-hover: #b00020;
-            --input-bg: #2c2c2c;
-            --input-border: #444;
-        }
+    .flip-card {
+        width: 40px;
+        height: 60px;
+        font-size: 2.5rem;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
+    .top,
+    .top-flip {
+        line-height: 60px;
+    }
 
-        .container {
-            text-align: center;
-            background: var(--container-bg);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 400px;
-        }
+    .bottom::before,
+    .bottom-flip::before {
+        line-height: 60px;
+        margin-top: -30px;
+    }
 
-        h1 {
-            margin-top: 0;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
+    .colon {
+        font-size: 2.5rem;
+    }
 
-        .input-group {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        input {
-            padding: 0.8rem;
-            font-size: 1rem;
-            width: 140px;
-            /* Increased width for placeholder */
-            background-color: var(--input-bg);
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            color: var(--text-color);
-            text-align: center;
-            color-scheme: dark;
-            /* Dark mode for spinners */
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        button {
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        button:hover {
-            background-color: var(--primary-hover);
-        }
-
-        #resetBtn {
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            border: 1px solid var(--input-border);
-        }
-
-        #resetBtn:hover {
-            background-color: #3a3a3a;
-        }
-
-        #timerDisplay {
-            font-size: 5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-top: 1rem;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 480px) {
-            .container {
-                padding: 2rem;
-            }
-
-            #timerDisplay {
-                font-size: 4rem;
-            }
-
-            button {
-                padding: 0.6rem 1.2rem;
-            }
-        }
+    button {
+        padding: 0.6rem 1.2rem;
+    }
+}

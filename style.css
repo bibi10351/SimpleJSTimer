@@ -40,7 +40,7 @@ h1 {
 }
 
 .input-group {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -92,6 +92,27 @@ button:hover {
     background-color: #3a3a3a;
 }
 
+.sound-control {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.sound-control label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.sound-control input {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
 #timerDisplay {
     font-size: 5rem;
     font-weight: 700;
@@ -105,121 +126,13 @@ button:hover {
 @media (max-width: 480px) {
     .container {
         padding: 2rem;
+    }
 
-        :root {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --primary-color: #bb86fc;
-            --primary-hover: #9965f4;
-            --secondary-color: #03dac6;
-            --secondary-hover: #018786;
-            --danger-color: #cf6679;
-            --danger-hover: #b00020;
-            --input-bg: #2c2c2c;
-            --input-border: #444;
-        }
+    #timerDisplay {
+        font-size: 4rem;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        .container {
-            text-align: center;
-            background: var(--container-bg);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 400px;
-        }
-
-        h1 {
-            margin-top: 0;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .input-group {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        input {
-            padding: 0.8rem;
-            font-size: 1rem;
-            width: 140px;
-            /* Increased width for placeholder */
-            background-color: var(--input-bg);
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            color: var(--text-color);
-            text-align: center;
-            color-scheme: dark;
-            /* Dark mode for spinners */
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        button {
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        button:hover {
-            background-color: var(--primary-hover);
-        }
-
-        #resetBtn {
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            border: 1px solid var(--input-border);
-        }
-
-        #resetBtn:hover {
-            background-color: #3a3a3a;
-        }
-
-        #timerDisplay {
-            font-size: 5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-top: 1rem;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 480px) {
-            .container {
-                padding: 2rem;
-            }
-
-            #timerDisplay {
-                font-size: 4rem;
-            }
-
-            button {
-                padding: 0.6rem 1.2rem;
-            }
-        }
+    button {
+        padding: 0.6rem 1.2rem;
+    }
+}
